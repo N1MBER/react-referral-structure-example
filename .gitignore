@@ -3,6 +3,9 @@
 # dependencies
 /node_modules
 /.pnp
+.idea/
+*.module.css
+*.css.map
 .pnp.js
 
 # testing

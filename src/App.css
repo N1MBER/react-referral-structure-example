@@ -1,5 +1,8 @@
+@import './assets/styles/calendar.css';
+
 .App {
   text-align: center;
+  height: 100%;
 }
 
 .App-logo {
@@ -28,11 +31,66 @@
   color: #61dafb;
 }
 
+.slick-arrow{
+  display: none !important;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+p,pre,h1,h2,h3,h4,h5,h6{
+  margin: 0;
+}
+
+input:focus, button:focus, textarea:focus{
+  outline: none;
+}
+input,button, textarea{
+  padding: 0;
+}
+
+.react-slideshow-container > button{
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  top: 40%;
+  z-index: 30;
+  display: flex;
+  cursor: pointer;
+  border-radius: 40px;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+}
+.react-slideshow-container > button:first-child{
+  left: 10px;
+}
+.react-slideshow-container > button:last-child{
+  right: 10px;
+}
+.react-slideshow-container > button:hover{
+  box-shadow: 0px 10px 40px rgba(255, 255, 255, 0.4), 0px 0px 0px 4px rgba(255, 255, 255, 0.4);
+  background: #FFF;
+}
+.react-slideshow-container{
+  width: 100%;
+  overflow: hidden;
+}
+.react-slideshow-fade-images-wrap{
+  display: flex;
+  /*flex-wrap: wrap;*/
+  height: 600px;
+  flex-direction: row;
+}
+@media all and (max-width: 800px){
+  .App{
+    background: #F4F6F8;
+    overflow-x: hidden;
   }
 }

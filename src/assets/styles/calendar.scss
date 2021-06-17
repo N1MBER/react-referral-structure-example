@@ -1,0 +1,163 @@
+@import "./mixin.module";
+
+.react-calendar{
+  width: 100%;
+  background: #FFF;
+  box-sizing: border-box;
+  padding: 14px;
+  max-width: 270px;
+  min-width: 260px;
+  @include border-radius(11px);
+  border: 1px solid #BFCDDC;
+  z-index: 15;
+  position: relative;
+  &__navigation{
+    height: 40px;
+    background: #FFF;
+    @include border-radius(6px);
+    width: 100%;
+    box-sizing: border-box;
+    padding: 7px 21px;
+    margin-bottom: 9px;
+    &__label{
+      cursor: pointer;
+      @include clear();
+      @include font-setter(normal, 600, 16px, 19px, black)
+    }
+    &__next-button,&__prev-button{
+      @include clear();
+      width: 26px;
+      height: 26px;
+      cursor: pointer;
+      @include border-radius(13px);
+      background: #FFF;
+    }
+    &__next-button svg{
+      transform: rotate(180deg);
+    }
+    &__next2-button, &__prev2-button{
+      display: none;
+    }
+    &__arrow{
+      @include font-setter(normal, 600, 20px, 26px, #303030);
+    }
+  }
+  &__month-view__weekdays{
+    z-index: 10;
+    @include font-setter(normal, 600, 12px, 16px, #303030);
+    @include flex-space-center();
+    //padding: 0 6px;
+    box-sizing: border-box;
+    & abbr{
+      text-decoration: none;
+    }
+    &__weekday{
+      flex-basis: 34px !important;
+      max-width: 34px;
+    }
+  }
+  &__month-view__days{
+    justify-content: space-between;
+    &__day{
+      @include clear();
+      flex-basis: 21px !important;
+      height: 21px;
+      width: 21px;
+      @include flex-center();
+      text-align: center;
+      margin: 6px;
+      padding: 0;
+      background: #FFF;
+      @include border-radius(4px);
+      @include font-setter(normal, 600, 12px, 14px, #303030);
+      cursor: pointer;
+      &--weekend{
+        color: #C10E0E;
+      }
+    }
+  }
+  &__year-view__months{
+    justify-content: space-between;
+    &__month{
+      @include clear();
+      margin: 6px;
+      flex-basis: 28% !important;
+      padding: 0;
+      height: 24px;
+      background: #FFF;
+      cursor: pointer;
+      &:hover{
+        color: #FFDA24;
+        border: 1px solid #FFDA24;
+      }
+      @include border-radius(4px);
+      @include font-setter(normal, 600, 12px, 14px, #303030);
+    }
+  }
+  &__decade-view__years{
+    justify-content: space-between;
+    &__year{
+      @include clear();
+      margin: 6px;
+      flex-basis: 28% !important;
+      padding: 0;
+      height: 24px;
+      background: #FFF;
+      cursor: pointer;
+      &:hover{
+        color: #FFDA24;
+        border: 1px solid #FFDA24;
+      }
+      @include border-radius(4px);
+      @include font-setter(normal, 600, 12px, 14px, #303030);
+    }
+  }
+  &__century-view__decades{
+    justify-content: space-between;
+    &__decade{
+      @include clear();
+      margin-bottom: 6px;
+      flex-basis: 50% !important;
+      max-width: 50% !important;
+      box-sizing: border-box;
+      padding: 0;
+      height: 24px;
+      background: #FFF;
+      cursor: pointer;
+      width: 50%;
+      &:hover{
+        color: #FFDA24;
+        border: 1px solid #FFDA24;
+      }
+      @include border-radius(4px);
+      @include font-setter(normal, 600, 12px, 14px, #303030);
+    }
+  }
+}
+.react-calendar__navigation__arrow{
+  transition: all 0.3s ease-in;
+  & svg, & path{
+    transition: all 0.3s ease-in;
+  }
+  &:hover{
+    background: #FFDA24;
+    box-shadow: -4px -4px 20px #FFFFFF, 4px 4px 20px rgba(54, 84, 170, 0.1), inset 2px 2px 5px rgba(255, 255, 255, 0.5);
+    & svg, & path{
+      fill: #FFF;
+    }
+  }
+}
+.react-calendar__tile{
+  transition: all 0.3s ease-in;
+  border: 1px solid #FFF;
+}
+.scan{
+  .react-calendar__month-view__days__day{
+    margin: 3px;
+  }
+}
+.react-calendar__tile--active{
+  color: #FFDA24;
+  border: 1px solid #FFDA24;
+}
+

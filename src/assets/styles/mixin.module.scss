@@ -1,0 +1,77 @@
+
+@mixin flex-space-center(){
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin clear(){
+  background: none;
+  border: none;
+}
+
+@mixin flex-center(){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexible-row(){
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+}
+
+@mixin border-radius($radius){
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -o-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
+
+@mixin flex-start(){
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+@mixin font-setter($style,$weight,$size,$height,$color){
+  @if $weight == 100{
+    font-family: "Monsterat-Thin", sans-serif;
+  }
+  @if $weight == 200{
+    font-family: "Monsterat-ExtaLight", sans-serif;
+  }
+  @if $weight == 300{
+    font-family: "Monsterat-Light", sans-serif;
+  }
+  @if $weight == 400{
+    font-family: "Monsterat-Regular", sans-serif;
+  }
+  @if $weight == 500{
+    font-family: "Monsterat-Medium", sans-serif;
+  }
+  @if $weight == 600{
+    font-family: "Monsterat-SemiBold", sans-serif;
+  }
+  @if $weight == 700{
+    font-family: "Monsterat-Bold", sans-serif;
+  }
+  @if $weight == 800{
+    font-family: "Monsterat-ExtraBold", sans-serif;
+  }
+  @if $weight == 900{
+    font-family: "Monsterat-Black", sans-serif;
+  }
+  @if $weight == normal {
+    font-family: "Monsterat-Regular", sans-serif;
+  }
+  @if $weight == bold{
+    font-family: "Monsterat-Bold", sans-serif;
+  }
+  font-style: $style;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $height;
+  color: $color;
+}

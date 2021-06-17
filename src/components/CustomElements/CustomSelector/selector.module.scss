@@ -1,0 +1,124 @@
+@import "../../../assets/styles/mixin.module";
+
+.container{
+  width: 100%;
+  max-width: 416px;
+  @include flex-start();
+  flex-direction: column;
+  & .title{
+    margin-bottom: 10px;
+    @include flex-space-center();
+    & .title__text{
+      @include font-setter(normal, bold, 15px, 20px, #303030);
+    }
+  }
+  & .select{
+    width: 100%;
+    position: relative;
+    &:not(.open){
+      .list{
+        height: 0;
+        padding: 0 10px;
+        top: 45px !important;
+      }
+    }
+    &.open{
+      & svg{
+        transform: rotate(180deg);
+      }
+      & .select__button{
+        border: 1px solid #2E80E1;
+        box-shadow: 0px 0px 4px rgba(46, 128, 225, 0.5);
+      }
+    }
+    & .select__button{
+      width: 100%;
+      z-index: 11;
+      position: relative;
+      @include flex-space-center();
+      background: #FFFFFF;
+      border: 1px solid #BFCDDC;
+      box-sizing: border-box;
+      vertical-align: center;
+      align-items: center;
+      border-radius: 4px;
+      padding-left: 15px;
+      min-height: 55px;
+      transition: all 0.33s ease;
+      padding-right: 16px;
+      cursor: pointer;
+      & .select__text{
+        @include font-setter(normal, normal, 15px, 24px, #303030);
+      }
+      & > svg{
+        transition: all 0.5s ease;
+      }
+    }
+    & .list{
+      width: 100%;
+      transition: all 0.5s ease;
+      position: absolute;
+      z-index: 10;
+      background: #FFF;
+      top: 50px !important;
+      @include flex-start();
+      flex-direction: column;
+      border: 1px solid #BFCDDC;
+      padding: 15px 10px;
+      box-sizing: border-box;
+      max-height: 200px;
+      overflow-y: scroll;
+      &::-webkit-scrollbar-thumb{
+        -webkit-border-radius: 0.520834vw;
+        border-radius: 0.520834vw;
+        background: #FFDA24;
+        transition: all 0.5s ease;
+      }
+      &::selection{
+        background: #FFDA24;
+        color: #fff;
+      }
+      &::-webkit-scrollbar{
+        width: 7px;
+      }
+      &::-webkit-scrollbar-track{
+        background: rgba(0, 0, 0, 0.2);
+        -webkit-border-radius: 0.520834vw;
+        border-radius: 0.520834vw;
+      }
+      & > button:not(:last-child){
+        margin-bottom: 5px;
+      }
+      & .list__element{
+        @include clear();
+        border-radius: 5px;
+        width: 100%;
+        padding: 0 8px;
+        box-sizing: border-box;
+        @include flex-center();
+        justify-content: flex-start;
+        @include font-setter(normal, normal, 15px, 24px, #303030);
+        min-height: 30px;
+        border: 1px solid #BFCDDC;
+        transition: all 0.3s ease;
+        max-width: 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        cursor: pointer;
+        &:hover{
+          border: 1px solid #FFDA24;
+          color: #FFDA24;
+        }
+
+      }
+    }
+  }
+}
+@media all and (max-width: 800px) {
+  .select__button{
+    min-height: 50px !important;
+  }
+  .list{
+    top: 45px !important;
+  }
+}

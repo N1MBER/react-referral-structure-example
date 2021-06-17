@@ -1,13 +1,52 @@
+
+@font-face {font-family: "Monsterat-Thin";  src:  url("./assets/fonts/Montserrat/Montserrat-Thin.ttf");  }
+@font-face {font-family: "Monsterat-ExtaLight";  src:  url("./assets/fonts/Montserrat/Montserrat-ExtraLight.ttf");  }
+@font-face {font-family: "Monsterat-Light";  src:  url("./assets/fonts/Montserrat/Montserrat-Light.ttf");  }
+@font-face {font-family: "Monsterat-Regular";  src:  url("./assets/fonts/Montserrat/Montserrat-Regular.ttf");  }
+@font-face {font-family: "Monsterat-Medium";  src:  url("./assets/fonts/Montserrat/Montserrat-Medium.ttf");  }
+@font-face {font-family: "Monsterat-SemiBold";  src:  url("./assets/fonts/Montserrat/Montserrat-SemiBold.ttf");  }
+@font-face {font-family: "Monsterat-Bold";  src:  url("./assets/fonts/Montserrat/Montserrat-Bold.ttf");  }
+@font-face {font-family: "Monsterat-ExtraBold";  src:  url("./assets/fonts/Montserrat/Montserrat-ExtraBold.ttf");  }
+@font-face {font-family: "Monsterat-Black";  src:  url("./assets/fonts/Montserrat/Montserrat-Black.ttf");  }
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  background: #FFF;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+body,html,#root{
+  height: 100%;
+}
+
+iframe{
+  width: 100%;
+  height: 100%;
+}
+
+body::-webkit-scrollbar-thumb{
+  -webkit-border-radius: 0.520834vw;
+  border-radius: 0.520834vw;
+  background: #FFDA24;
+}
+body::selection{
+  background: #FFDA24;
+  color: #fff;
+}
+body::-webkit-scrollbar{
+  width: 7px;
+}
+body::-webkit-scrollbar-track{
+  background: rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 0.520834vw;
+  border-radius: 0.520834vw;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  monospace;
 }

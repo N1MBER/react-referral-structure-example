@@ -1,0 +1,45 @@
+@import "../../../assets/styles/mixin.module";
+
+.referral{
+  width: 100%;
+  @include flex-center();
+  flex-direction: column;
+  & .arrowButton{
+    @include clear();
+    @include flex-center();
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  & .pageButton{
+    @include clear();
+    min-width: 89px;
+    height: 30px;
+    padding: 0 10px;
+    cursor: pointer;
+    @include flex-center();
+    @include font-setter(normal, 500, 14px, 20px, #303030);
+    background: #FFFFFF;
+    box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  & .buttons{
+    width: 100%;
+    @include flex-space-center();
+    & .buttons__container{
+      @include flex-center();
+      & > *:first-child{
+        margin-right: 15px;
+      }
+    }
+
+  }
+  & .content{
+    width: 100%;
+    @include flex-center();
+    margin-top: 44px;
+  }
+}

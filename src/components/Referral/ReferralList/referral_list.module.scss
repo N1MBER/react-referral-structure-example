@@ -1,0 +1,116 @@
+@import '../../../assets/styles/mixin.module';
+
+.referralCard{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 29.39% 28.24% 7.84% 24.16% 10.35%;
+  vertical-align: center;
+  align-items: center;
+  height: 65px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding-left: 20px;
+  padding-right: 49px;
+  box-sizing: border-box;
+  & .referralCard__name{
+    @include font-setter(normal, 600, 14px, 18px, #303030);
+  }
+  & .referralCard__date{
+    @include font-setter(normal, normal, 14px, 18px, #303030);
+
+  }
+  & .referralCard__rate{
+    @include font-setter(normal, normal, 14px, 18px, #303030);
+
+  }
+  & .referralCard__qualification{
+    @include font-setter(normal, normal, 14px, 18px, #303030);
+
+  }
+  & .message{
+    @include clear();
+    @include flex-center();
+    & svg{
+      margin-right: 8px;
+      transition: all 0.4s ease;
+    }
+    &:hover {
+      & svg{
+        transform: scale(1.1);
+      }
+      .message__text{
+        text-decoration: underline;
+      }
+    }
+    & .message__text{
+      @include font-setter(normal, 600, 14px, 18px, #2E80E1);
+    }
+  }
+}
+.referralList__filter, .referralCard {
+  & > *:first-child, & > *:nth-child(2), & > *:nth-child(5) {
+    text-align: left;
+    justify-content: left;
+  }
+  & > *:nth-child(3), & > *:nth-child(4) {
+    text-align: center;
+    justify-content: center;
+  }
+}
+.referralList{
+  width: 100%;
+  & .referralList__filter{
+    width: 100%;
+    display: grid;
+    box-sizing: border-box;
+    grid-template-columns: 29.39% 28.24% 7.84% 24.16% 10.35%;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 49px;
+    margin-bottom: 8px;
+  }
+  & .referralList__content{
+    width: 100%;
+    display: grid;
+    grid-template-rows: 65px;
+    grid-gap: 10px;
+    //& > div{
+    //  margin-bottom: 10px;
+    //}
+    //& > div:last-child{
+    //  margin-bottom: 0;
+    //}
+  }
+}
+@media all and (max-width: 1200px){
+    .referralList__filter, .referralCard{
+      & > *:nth-child(2){
+        display: none;
+      }
+      grid-template-columns: 1fr 1fr 1fr 1fr !important;
+    }
+
+}
+
+@media all and (max-width: 800px) {
+  .referralList__filter{
+    & > button:nth-child(2), & > *:nth-child(5){
+      display: none;
+    }
+  }
+  .referralList__filter, .referralCard{
+    padding-left: 9px !important;
+    padding-right: 11px !important;
+    & > *:nth-child(2){
+      display: none;
+    }
+    grid-template-columns: 37.72% 33.83% 13.77% 14.78% !important;
+  }
+  .message{
+    justify-content: flex-end !important;
+  }
+  .message__text{
+    display: none;
+  }
+}
