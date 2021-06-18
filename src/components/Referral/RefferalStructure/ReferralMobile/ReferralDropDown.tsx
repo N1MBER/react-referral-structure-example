@@ -15,10 +15,11 @@ interface IReferralDropDown{
     isChild: boolean,
     calcHeight?: (num: number) => void,
     close?: boolean,
-    setLine?: (num: number) => void
+    setLine?: (num: number) => void,
+    depth: number
 }
 
-const ReferralDropDown:FC<IReferralDropDown> = ({user, isChild, calcHeight, close, setLine}) => {
+const ReferralDropDown:FC<IReferralDropDown> = ({user, isChild, calcHeight, close, setLine, depth}) => {
     const [data, setData] = useState({
         name: ''
     });
@@ -76,7 +77,7 @@ const ReferralDropDown:FC<IReferralDropDown> = ({user, isChild, calcHeight, clos
             })}
         >
             <button className={style.dropDownButton} onClick={() => {
-                if (user && user.list && user.list.length > 0){
+                if (depth !== 3 && user && user.list && user.list.length > 0){
                     setOpen(!open)
                 }
             }}>
@@ -98,7 +99,7 @@ const ReferralDropDown:FC<IReferralDropDown> = ({user, isChild, calcHeight, clos
                    <p className={style.dropDownButton__text}>{user && user.name}</p>
                    <p className={style.dropDownButton__category}>{user && user.category}</p>
                </div>
-                {user && user.list && user.list.length > 0 &&
+                {depth !== 3 && user && user.list && user.list.length > 0 &&
                     <>
                         { open ?
                             <p className={style.dropDownButton__counter}>{`+ ${user.list.length}`}</p>:
@@ -106,13 +107,13 @@ const ReferralDropDown:FC<IReferralDropDown> = ({user, isChild, calcHeight, clos
                     </>
                 }
             </button>
-            {user && user.list && user.list.length > 0 &&
+            {depth !== 3 && user && user.list && user.list.length > 0 &&
                 <div
                     className={style.dropDown__list}
                     style={{height: height}}
                 >
                     <div className={style.line} style={{height: lineHeight}}/>
-                    { user.list.map((item, index) => {
+                    {user.list.map((item, index) => {
                         return (
                             <ReferralDropDown
                                 user={item}
@@ -123,6 +124,7 @@ const ReferralDropDown:FC<IReferralDropDown> = ({user, isChild, calcHeight, clos
                                     if (user.list && index !== user.list.length -1)
                                         setLineHeight(lineHeight + val)
                                 }}
+                                depth={depth + 1}
                                 close={!open}
                             />
                         )

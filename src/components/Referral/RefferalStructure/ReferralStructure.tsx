@@ -1,7 +1,7 @@
 import React, {FC, useEffect, useState} from "react";
 import style from "./referral_structure.module.scss";
 import useResolution from "../../../hooks/useResolution";
-import ReferralDropDown from "./DropDown/ReferralDropDown";
+import ReferralDropDown from "./ReferralMobile/ReferralDropDown";
 import ReferralDesktop from "./ReferralDesktop/ReferralDesktop";
 import Loader from "react-loader-spinner";
 import {ResponseStructure} from "../Examples";
@@ -74,7 +74,7 @@ const ReferralStructure:FC<IReferral> = ({users}) => {
             if (item.LOGIN){
                 let obj = {
                     name: item.LOGIN ? item.LOGIN: '???',
-                    category: '-',
+                    category: item.CATEGORY,
                     id: index + 1,
                     list: [] as Node[],
                 } as Node
@@ -167,7 +167,7 @@ const ReferralStructure:FC<IReferral> = ({users}) => {
                     visibleTree &&
                     <>
                         {isMobile ?
-                            <ReferralDropDown user={visibleTree} isChild={false}/>:
+                            <ReferralDropDown user={visibleTree} depth={1} isChild={false}/>:
                             <ReferralDesktop clickOnElement={clickOnNode} user={visibleTree}/>
                         }
                     </>:
