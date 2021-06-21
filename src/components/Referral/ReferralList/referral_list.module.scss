@@ -73,6 +73,7 @@
   & .referralList__content{
     width: 100%;
     display: grid;
+    min-height: 150px;
     grid-template-rows: 65px;
     grid-gap: 10px;
     //& > div{

@@ -1,11 +1,11 @@
 import React, {FC, useEffect, useState} from "react";
 import ReferralCard from "./ReferralCard";
 import style from './referral_list.module.scss';
-import style_filter from '../../CustomElements/FilterButtons/filter_button.module.scss';
+import style_filter from '../../common/FilterButtons/filter_button.module.scss';
 import useResolution from "../../../hooks/useResolution";
 import Loader from "react-loader-spinner";
-import FilterButton from "../../CustomElements/FilterButtons/FilterButton";
-import {ResponseUser} from "../RefferalStructure/ReferralStructure";
+import FilterButton from "../../common/FilterButtons/FilterButton";
+import {ResponseUser} from "../RefferalTree/ReferralTree";
 
 type UserRef = {
     name: string,
@@ -32,6 +32,26 @@ const ReferralList:FC<IReferralList> = ({users}) => {
             type: type,
             isTop: sortType.type === type ? !sortType.isTop : true
         })
+    }
+
+    useEffect(() => {
+        getFilteredData()
+    }, [JSON.stringify(sortType)])
+
+    const getFilteredData = () => {
+        let arr = [...list];
+        arr = arr.sort((a,b) => {
+            return sortByType(sortType.type, a,b);
+        })
+        setList(arr)
+    }
+
+    const sortByType = (type: string,val1: UserRef, val2:UserRef) => {
+        // @ts-ignore
+        if (val1[type] < val2[type])
+            return sortType.isTop ? -1: 1
+        else
+            return sortType.isTop ? 1: -1
     }
 
     useEffect(() => {
@@ -78,7 +98,7 @@ const ReferralList:FC<IReferralList> = ({users}) => {
                 />
                 <FilterButton
                     setFilter={() => setFilter('rate')}
-                    isTop={sortType.type === 'rate' && sortType.isTop}
+                    isTop={sortType.type === 'rate' ? sortType.isTop: undefined}
                     name={'Рэйтинг'}
                 />
                 <FilterButton
