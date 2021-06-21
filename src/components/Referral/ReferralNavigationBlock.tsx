@@ -4,7 +4,7 @@ import classNames from "classnames";
 import style from './referral.module.scss';
 import useResolution from "../../hooks/useResolution";
 
-const ReferralTitleBlock:FC = () => {
+const ReferralNavigationBlock:FC = () => {
     const [activePage, setActivePage] = useState(1);
     const [viewMessage, setViewMessage] = useState(false);
     const [refText, setRefText] = useState('');
@@ -87,4 +87,4 @@ const ReferralIcon = (
     </svg>
 )
 
-export default ReferralTitleBlock;
+export default ReferralNavigationBlock;

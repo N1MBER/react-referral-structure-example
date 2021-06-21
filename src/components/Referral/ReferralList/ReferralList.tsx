@@ -1,5 +1,5 @@
 import React, {FC, useEffect, useState} from "react";
-import ReferralCard from "./ReferralCard";
+import ReferralListCard from "./ReferralListCard";
 import style from './referral_list.module.scss';
 import style_filter from '../../common/FilterButtons/filter_button.module.scss';
 import useResolution from "../../../hooks/useResolution";
@@ -111,7 +111,7 @@ const ReferralList:FC<IReferralList> = ({users}) => {
             <div className={style.referralList__content}>
                 {loaded ?
                     list.map(item =>
-                        <ReferralCard {...item}/>
+                        <ReferralListCard {...item}/>
                     ):
                     <Loader
                         type="TailSpin"

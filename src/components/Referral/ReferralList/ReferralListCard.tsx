@@ -8,7 +8,7 @@ interface IReferralCard {
     qualification: string
 }
 
-const ReferralCard:FC<IReferralCard> = ({name, date,rate,qualification}) => {
+const ReferralListCard:FC<IReferralCard> = ({name, date,rate,qualification}) => {
     return (
         <div className={style.referralCard}>
             <p className={style.referralCard__name}>{name}</p>
@@ -31,4 +31,4 @@ const MessageIcon = (
     </svg>
 )
 
-export default ReferralCard;
+export default ReferralListCard;
